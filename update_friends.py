@@ -54,11 +54,15 @@ def update_data(vk_instance, traget_user_id):
     return friends_ids
 
 
-def print_diff(set1, set2):
+def print_diff(string, string2, set1, set2):
+    if set1 != set2:
+        print string
+        print string2
         print ("deleted")
         print(set1 - set2)
         print ("added")
         print (set2 - set1)
+        print("")
 
 
 current_dir = os.listdir("./")
@@ -84,13 +88,11 @@ for i in range(len(times)):
     fd.close()
 
     if i+1 == len(times):
-        print_diff(set(data["items"]), set(friends_ids["items"]))
+        print_diff(filename, "now", set(data["items"]), set(friends_ids["items"]))
     else:
         filename2 = times[i+1].strftime(timeFormatFriends)
         fd = open(filename2, "r")
         data2 = json.load(fd)
         fd.close()
-        print (filename2)
-        print_diff(set(data["items"]), set(data2["items"]))
-    print ("")
+        print_diff(filename, filename2, set(data["items"]), set(data2["items"]))
 
