@@ -46,7 +46,7 @@ def dowload_all_user_photos(vk,target):
 
 
 vk=get_vk_api()
-targets=[13918748]
+targets=get_targets()
 for target in targets:
     try:
         os.mkdir(str(target))
