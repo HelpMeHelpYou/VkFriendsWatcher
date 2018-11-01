@@ -140,7 +140,7 @@ targetUserId = get_targets()[0];
 
 times = get_files_specified_format(timeFormatFriends)
 
-#print_history(times,timeFormatFriends)
+print_history(times,timeFormatFriends)
 
 current_time = time.time()
 times = get_files_specified_format(timeFormatFriends)
@@ -149,5 +149,4 @@ times = get_files_specified_format(timeFormatFriendsFull)
 update_friend_data(vk, targetUserId, timeFormatFriendsFull,current_time, fields=["name"],last_time=times[-1], previous_time=times[-2])
 times = get_files_specified_format(timeFormatFollowers)
 update_follower_data(vk, targetUserId, timeFormatFollowers,current_time, fields=[],last_time=times[-1], previous_time=times[-2])
-
 
